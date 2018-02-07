@@ -14,38 +14,23 @@ import com.radio.llanox.radioapp.ui.components.RadioPlayerComponent;
  */
 public class RadioActivity extends AppCompatActivity {
 
-    private AnalyticsComponent analyticsComponent;
-    private ErrorTrackingComponent errorTrackingComponent;
-    private NetworkComponent networkComponent;
-    private RadioPlayerComponent radioPlayerComponent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radio);
-
-        analyticsComponent = new AnalyticsComponent();
-        errorTrackingComponent = new ErrorTrackingComponent();
-        networkComponent = new NetworkComponent();
-        radioPlayerComponent = new RadioPlayerComponent();
+        getLifecycle().addObserver(new AnalyticsComponent());
+        getLifecycle().addObserver(new ErrorTrackingComponent());
+        getLifecycle().addObserver(new NetworkComponent());
+        getLifecycle().addObserver(new RadioPlayerComponent());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        analyticsComponent.init();
-        errorTrackingComponent.start();
-        networkComponent.start();
-        radioPlayerComponent.allocate();
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        analyticsComponent.finish();
-        errorTrackingComponent.stop();
-        networkComponent.stop();
-        radioPlayerComponent.cleanUp();
     }
 }
