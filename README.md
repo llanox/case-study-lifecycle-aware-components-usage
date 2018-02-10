@@ -46,6 +46,19 @@ https://github.com/llanox/case-study-lifecycle-aware-components-usage/blob/featu
 Making components lifecycle aware, we delegate all logic to the component itself. So, who's using one of these components only need to add them as observers to the current LifeCycle and don't care anymore about it. With that simple implementation, we've improved the maintainability and reliability of our app.
 
 ```Java
+public class AnalyticsComponent implements LifecycleObserver{
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public void init() {
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void finish() {
+    }
+}
+```
+
+```Java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
