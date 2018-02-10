@@ -1,7 +1,7 @@
-#Case Study Where We Can Use Lifecycle Aware Components to Improve Our Apps
+# Case Study Where We Can Use Lifecycle Aware Components to Improve Our Apps
 How to use the new Google library lifecycle aware component to improve some aspects regarding with maintainability and reliability concerns for Android apps.
 
-##Example App Radio APP without LifeCycle Aware Components
+## Example App Radio APP without LifeCycle Aware Components
 
 *Before*
 ```Java
